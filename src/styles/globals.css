@@ -1,0 +1,108 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #e4ebf5;
+  --surface: #e4ebf5;
+  --primary: #4f46e5;
+  --accent: #22c55e;
+  --text-main: #111827;
+  --text-soft: #6b7280;
+  --shadow-light: #ffffff;
+  --shadow-dark: #c5cedf;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Manrope', 'Inter', system-ui, sans-serif;
+  background-color: var(--bg);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  min-height: 100vh;
+}
+
+/* Utilidades de neumorfismo */
+.neomorphic {
+  background: var(--surface);
+  box-shadow: 
+    8px 8px 16px var(--shadow-dark),
+    -8px -8px 16px var(--shadow-light);
+}
+
+.neomorphic-inset {
+  background: var(--surface);
+  box-shadow: 
+    inset 4px 4px 8px var(--shadow-dark),
+    inset -4px -4px 8px var(--shadow-light);
+}
+
+.neomorphic-pressed {
+  box-shadow: 
+    inset 4px 4px 8px var(--shadow-dark),
+    inset -4px -4px 8px var(--shadow-light);
+}
+
+.neomorphic-hover:hover {
+  box-shadow: 
+    12px 12px 24px var(--shadow-dark),
+    -12px -12px 24px var(--shadow-light);
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
+}
+
+/* Botones neumórficos */
+.btn-neomorphic {
+  @apply neomorphic rounded-xl px-6 py-3 font-medium;
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.btn-neomorphic:hover {
+  @apply neomorphic-hover;
+}
+
+.btn-primary {
+  @apply btn-neomorphic;
+  background: var(--primary);
+  color: white;
+  box-shadow: 
+    6px 6px 12px var(--shadow-dark),
+    -6px -6px 12px var(--shadow-light);
+}
+
+.btn-primary:hover {
+  box-shadow: 
+    8px 8px 16px var(--shadow-dark),
+    -8px -8px 16px var(--shadow-light);
+}
+
+/* Cards neumórficos */
+.card-neomorphic {
+  @apply neomorphic rounded-2xl p-6;
+  @apply transition-all duration-300;
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--shadow-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-soft);
+}
+
